@@ -7,7 +7,7 @@ class Led : public Component {
 private:
 
 public:
-    Led(uint8_t pin, State state);
+    Led(uint8_t pin, State state, IO io);
     void blink();
 };
 

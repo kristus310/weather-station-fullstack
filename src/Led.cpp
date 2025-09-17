@@ -5,7 +5,7 @@
 // PRIVATE
 
 // PUBLIC
-Led::Led(uint8_t pin, State state) : Component(pin, state) {}
+Led::Led(uint8_t pin, State state, IO io) : Component(pin, state, io) {}
 
 void Led::blink() {
     on();

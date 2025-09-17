@@ -12,9 +12,15 @@ public:
         ON,
         OFF,
     };
-    Component(uint8_t pin, State state);
+    enum IO {
+        INPUT,
+        OUTPUT,
+    };
+
+    Component(uint8_t pin, State state, IO io);
     void on();
     void off();
+    void setIO(IO io);
 };
 
 #endif
