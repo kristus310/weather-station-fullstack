@@ -1,3 +1,0 @@
-# Exclude CMake files from GitHub language stats
-CMakeLists.txt linguist-vendored
-pico_sdk_import.cmake linguist-vendored
