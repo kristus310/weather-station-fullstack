@@ -9,12 +9,11 @@ public:
     struct WeatherData {
         float temperature;
         float humidity;
-        char errorMessage[20];
+        bool error;
     };
 
     Sensor(uint8_t pin, State state, IO io);
-    void printData(WeatherData data);
-    void printError(WeatherData data);
+    void sendData(WeatherData data);
     WeatherData read();
 
 private:

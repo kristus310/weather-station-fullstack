@@ -18,13 +18,12 @@ int main() {
     while (true) {
         sleep_ms(2000);
         Sensor::WeatherData data = dht11.read();
-        if (data.errorMessage && strcmp(data.errorMessage, "NULL") != 0) {
+        if (data.error == true) {
             errorLed.blink();
-            dht11.printError(data);
         }
         else {
             successLed.blink();
-            dht11.printData(data);
+            dht11.sendData(data);
         }
     }
     return 0;
