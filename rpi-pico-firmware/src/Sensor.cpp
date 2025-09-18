@@ -27,11 +27,11 @@ void Sensor::printError(Sensor::WeatherData data) {
 }
 
 Sensor::WeatherData Sensor::read() {
-    result = {0, 0, "NULL"};
+    result = {0, 0, "NULL"}; // "zeroing"/"initialiazing" the result
     uint8_t bytes[5] = {0};
 
-    int startingSignal = 20;        //"at least 18ms" - DHT11 datasheet
-    int waitingSignal = 40;         //"20-40us" - DHT11 datasheet
+    int startingSignal = 20;        // "at least 18ms for starting signal" - DHT11 datasheet
+    int waitingSignal = 40;         //" 20-40us for waiting signal" - DHT11 datasheet
     setIO(OUTPUT);
     off();                          // Pulling low voltage level
     sleep_ms(startingSignal);       // Waiting for the sensor to detect the output
@@ -59,7 +59,7 @@ Sensor::WeatherData Sensor::read() {
         }
         uint32_t duration = time_us_32() - start;
         uint32_t longPulse = 35; // If pulse > ~35us, it's a '1', otherwise it's a '0'
-        bytes[i / 8] <<= 1;
+        bytes[i / 8] <<= 1; // Just turning the data to bytes
         if (duration > longPulse) {
             bytes[i / 8] |= 1;
         }
